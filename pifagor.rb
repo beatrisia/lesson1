@@ -7,17 +7,23 @@ b = gets.to_f
 puts "Сторона c:"
 c = gets.to_f
 
-if c > a && c > b && a == b && c**2 == a**2 + b**2
+if a > b && a > c
+  hypotenuse = a
+  cathetus1 = b
+  cathetus2 = c
+elsif b > a && b > c
+  hypotenuse = b
+  cathetus1 = a
+  cathetus2 = c
+else
+  hypotenuse = c
+  cathetus1 = b
+  cathetus2 = a
+end
+
+if hypotenuse**2 == cathetus1**2 + cathetus2**2 && cathetus1 == cathetus2
   puts "Этот треугольник прямоугольный и равнобедренный."
-elsif b > a && b > c && a == c && b**2 == a**2 + c**2
-  puts "Этот треугольник прямоугольный и равнобедренный."
-elsif a > b && a > c && b == c && a**2 == b**2 + c**2
-  puts "Этот треугольник прямоугольный и равнобедренный."
-elsif c > a && c > b && c**2 == a**2 + b**2
-  puts "Этот треугольник прямоугольный."
-elsif b > a && b > c && b**2 == a**2 + c**2
-  puts "Этот треугольник прямоугольный."
-elsif a > b && a > c && a**2 == b**2 + c**2
+elsif hypotenuse**2 == cathetus1**2 + cathetus2**2
   puts "Этот треугольник прямоугольный."
 else
   puts "Этот треугольник обычный."
